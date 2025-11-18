@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0A1D3B;
+  --gold: #D4AF37;
+  --light-gray: #F5F5F5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in;
+  }
+
+  .animate-fade-in-delay {
+    animation: fadeIn 1s ease-in 0.3s both;
+  }
+
+  .animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-in 0.6s both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .text-navy {
+    color: var(--navy);
+  }
+
+  .bg-navy {
+    background-color: var(--navy);
+  }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-gold {
+    background-color: var(--gold);
+  }
+
+  .bg-light-gray {
+    background-color: var(--light-gray);
+  }
+
+  .border-gold {
+    border-color: var(--gold);
+  }
+
+  .border-navy {
+    border-color: var(--navy);
+  }
+
+  .hover\:text-gold:hover {
+    color: var(--gold);
+  }
+
+  .hover\:bg-gold:hover {
+    background-color: var(--gold);
+  }
+
+  .hover\:bg-navy:hover {
+    background-color: var(--navy);
+  }
+
+  .focus\:border-gold:focus {
+    border-color: var(--gold);
+  }
+
+  .fill-gold {
+    fill: var(--gold);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+details summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+details[open] summary ~ * {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 600px;
+}
+
+.tour-card, .destination-card {
+  transition: all 0.3s ease;
+}
+
+.tour-card:hover, .destination-card:hover {
+  transform: translateY(-8px);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 400px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media print {
+  header, footer, .no-print {
+    display: none;
+  }
+}
+
+.masonry-grid {
+  column-count: 1;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+.masonry-grid > div {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
